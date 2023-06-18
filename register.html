@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Registration</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    
+  <form id="registrationForm">
+    <h1>Registration</h1>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+    <button type="submit">Register</button>
+  </form>
+  <div id="dashboard" style="display: none;">
+    <h2>Welcome to the Dashboard!</h2>
+    <p id="userInfo"></p>
+  </div>
+  </div>
+
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+
+  var username = document.getElementById("username").value;
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  var confirmPassword = document.getElementById("confirmPassword").value;
+
+  // Perform form validation
+  if (password !== confirmPassword) {
+    alert("Passwords do not match. Please try again.");
+    return;
+  }
+
+  // Registration successful, display dashboard
+  document.getElementById("registrationForm").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
+
+  // Display user information on the dashboard
+  var userInfo = document.getElementById("userInfo");
+  userInfo.textContent = "Username: \t" + username + ", Email: " + email;
+});
+
+  </script>
+</body>
+</html>

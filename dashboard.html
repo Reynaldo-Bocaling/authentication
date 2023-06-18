@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            
+            <div id="userInfo">
+                <h1>Dashboard</h1>
+                <h2>User Information</h2>
+                <p><strong>Username:</strong> <span id="username"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+            </div>
+
+            <div id="profileUpdate">
+               
+                <form id="updateForm">
+                    <h2>Update Profile</h2>
+                    <input type="text" id="newUsername" placeholder="New Username" required>
+                    <input type="email" id="newEmail" placeholder="New Email" required>
+                    <button type="submit">Update</button>
+                </form>
+                <div id="activity">
+                    <h2>Activity</h2>
+                    <button id="activityBtn" onclick="performActivity()">Perform Activity</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        var user = {
+            username: "Maureen",
+            email: "Maureen@example.com"
+        };
+
+        document.getElementById("username").textContent = user.username;
+        document.getElementById("email").textContent = user.email;
+
+        document.getElementById("updateForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+
+            var newUsername = document.getElementById("newUsername").value;
+            var newEmail = document.getElementById("newEmail").value;
+
+
+            user.username = newUsername;
+            user.email = newEmail;
+
+            // Display updated user information on the dashboard
+            document.getElementById("username").textContent = user.username;
+            document.getElementById("email").textContent = user.email;
+
+            // Reset form fields
+            document.getElementById("updateForm").reset();
+        });
+
+        // Perform activity button click event handler
+        function performActivity() {
+            // Perform specific activity or process
+            alert("Activity performed!");
+        }
+
+    </script>
+</body>
+
+</html>
